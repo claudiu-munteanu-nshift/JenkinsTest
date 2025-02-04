@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>jenkinstest</groupId>
+    <artifactId>jenkinstest</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.3.RELEASE</version>
+    </parent>
+
+    <repositories>
+        <repository>
+            <id>jenkinstest</id>
+            <name>KenkinsTest</name>
+            <url>https://github.com/claudiu-munteanu-nshift/JenkinsTest</url>
+        </repository>
+    </repositories>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <io.cucumber.version>4.8.1</io.cucumber.version>
+        <org.seleniumhq.selenium.version>3.141.59</org.seleniumhq.selenium.version>
+        <io.github.bonigarcia.webdrivermanager.version>5.6.3</io.github.bonigarcia.webdrivermanager.version>
+        <junit.version>4.13.2</junit.version>
+        <org.projectlombok.lombok.version>1.18.30</org.projectlombok.lombok.version>
+        <org.apache.poi.version>4.0.1</org.apache.poi.version>
+        <io.rest-assured.version>3.3.0</io.rest-assured.version>
+        <com.fasterxml.jackson.version>2.9.8</com.fasterxml.jackson.version>
+        <com.fasterxml.jackson.dataformat.version>2.9.8</com.fasterxml.jackson.dataformat.version>
+        <commons-net.version>3.6</commons-net.version>
+        <ThreadsInParallel>1</ThreadsInParallel>
+        <org.postgresql.version>42.6.0</org.postgresql.version>
+        <ArchitectureScheme>FEATURE</ArchitectureScheme>
+        <org.testng.version>7.8.0</org.testng.version>
+
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${org.postgresql.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-spring</artifactId>
+            <version>${io.cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${io.cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>${io.cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${org.seleniumhq.selenium.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-server</artifactId>
+            <version>${org.seleniumhq.selenium.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${io.github.bonigarcia.webdrivermanager.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${org.projectlombok.lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>${org.apache.poi.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>${org.apache.poi.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${io.rest-assured.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${com.fasterxml.jackson.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-csv</artifactId>
+            <version>${com.fasterxml.jackson.dataformat.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-net</groupId>
+            <artifactId>commons-net</artifactId>
+            <version>${commons-net.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.codehaus.groovy/groovy -->
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy</artifactId>
+            <version>3.0.8</version>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${org.testng.version}</version>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>junit</groupId>
+                    <artifactId>junit</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${io.rest-assured.version}</version>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.hamcrest</groupId>
+                    <artifactId>hamcrest</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.github.temyers</groupId>
+                <artifactId>cucumber-jvm-parallel-plugin</artifactId>
+                <version>5.0.0</version>
+                <executions>
+                    <execution>
+                        <id>generateRunners</id>
+                        <phase>generate-test-sources</phase>
+                        <goals>
+                            <goal>generateRunners</goal>
+                        </goals>
+                        <configuration>
+                            <!-- Mandatory -->
+                            <!-- List of package names to scan for glue code. -->
+                            <glue>
+                                <package>jenkinstest.steps</package>
+                            </glue>
+                            <!-- The directory, which must be in the root of the runtime classpath, containing your feature files.  -->
+                            <featuresDirectory>src/test/resources/features</featuresDirectory>
+                            <!-- The tags to run, maps to CucumberOptions.tags property. Default is no tags. -->
+                            <tags>
+                                <tag>${profile.tags}</tag>
+                            </tags>
+                            <!-- List of cucumber plugins. When none are provided the json formatter is used. -->
+                            <plugins>
+                                <plugin>
+                                    <name>pretty</name>
+                                </plugin>
+                                <plugin>
+                                    <name>html</name>
+                                </plugin>
+                                <plugin>
+                                    <name>json</name>
+                                    <outputDirectory>${project.build.directory}/cucumber-parallel/json</outputDirectory>
+                                </plugin>
+                            </plugins>
+                            <!-- One of [SCENARIO, FEATURE]. SCENARIO generates one runner per scenario.  FEATURE generates a runner per feature. -->
+                            <parallelScheme>${ArchitectureScheme}</parallelScheme>
+                            <!-- The naming scheme to use for the generated test classes.  One of ['simple', 'feature-title', 'pattern'] -->
+                            <namingScheme>simple</namingScheme>
+                            <!-- Directory where the cucumber report files shall be written  -->
+                            <cucumberOutputDir>${project.build.directory}/cucumber-reports</cucumberOutputDir>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.1</version>
+                <configuration>
+                    <forkCount>${ThreadsInParallel}</forkCount>
+                    <reuseForks>true</reuseForks>
+                    <includes>
+                        <include>**/Parallel*IT.class</include>
+                    </includes>
+                </configuration>
+            </plugin>
+        </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.1</version>
+                    <configuration>
+                        <source>${maven.compiler.source}</source>
+                        <target>${maven.compiler.target}</target>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>Widget</id>
+            <activation>
+                <!-- this profile is active by default -->
+                <activeByDefault>true</activeByDefault>
+                <!-- activate if system properties 'feature=portal' -->
+                <property>
+                    <name>env</name>
+                    <value>Widget</value>
+                </property>
+            </activation>
+            <properties>
+                <profile.tags>@Widget</profile.tags>
+            </properties>
+        </profile>
+        <profile>
+            <id>Admin</id>
+            <activation>
+                <!-- this profile is active by default -->
+                <activeByDefault>true</activeByDefault>
+                <!-- activate if system properties 'feature=portal' -->
+                <property>
+                    <name>env</name>
+                    <value>Admin</value>
+                </property>
+            </activation>
+            <properties>
+                <profile.tags>@Admin</profile.tags>
+            </properties>
+        </profile>
+        <profile>
+            <id>SelfService</id>
+            <activation>
+                <!-- this profile is active by default -->
+                <activeByDefault>false</activeByDefault>
+                <!-- activate if system properties 'feature=portal' -->
+                <property>
+                    <name>env</name>
+                    <value>SelfService</value>
+                </property>
+            </activation>
+            <properties>
+                <profile.tags>@SelfService</profile.tags>
+            </properties>
+        </profile>
+        <profile>
+            <id>MarketSetup</id>
+            <activation>
+                <!-- this profile is active by default -->
+                <activeByDefault>false</activeByDefault>
+                <!-- activate if system properties 'feature=portal' -->
+                <property>
+                    <name>env</name>
+                    <value>MarketSetup</value>
+                </property>
+            </activation>
+            <properties>
+                <profile.tags>@MarketSetup</profile.tags>
+            </properties>
+        </profile>
+        <profile>
+            <id>ContentSetup</id>
+            <activation>
+                <!-- this profile is active by default -->
+                <activeByDefault>false</activeByDefault>
+                <!-- activate if system properties 'feature=portal' -->
+                <property>
+                    <name>env</name>
+                    <value>ContentSetup</value>
+                </property>
+            </activation>
+            <properties>
+                <profile.tags>@ContentSetup</profile.tags>
+            </properties>
+        </profile>
+        <profile>
+            <id>ReasonsAndConditions</id>
+            <activation>
+                <!-- this profile is active by default -->
+                <activeByDefault>false</activeByDefault>
+                <!-- activate if system properties 'feature=portal' -->
+                <property>
+                    <name>env</name>
+                    <value>ReasonsAndConditions</value>
+                </property>
+            </activation>
+            <properties>
+                <profile.tags>@ReasonsAndConditions</profile.tags>
+            </properties>
+        </profile>
+        <profile>
+            <id>ShippingOptions</id>
+            <activation>
+                <!-- this profile is active by default -->
+                <activeByDefault>false</activeByDefault>
+                <!-- activate if system properties 'feature=portal' -->
+                <property>
+                    <name>env</name>
+                    <value>ShippingOptions</value>
+                </property>
+            </activation>
+            <properties>
+                <profile.tags>@ShippingOptions</profile.tags>
+            </properties>
+        </profile>
+        <profile>
+            <id>BrandingSetup</id>
+            <activation>
+                <!-- this profile is active by default -->
+                <activeByDefault>false</activeByDefault>
+                <!-- activate if system properties 'feature=portal' -->
+                <property>
+                    <name>env</name>
+                    <value>BrandingSetup</value>
+                </property>
+            </activation>
+            <properties>
+                <profile.tags>@BrandingSetup</profile.tags>
+            </properties>
+        </profile>
+    </profiles>
+</project>
